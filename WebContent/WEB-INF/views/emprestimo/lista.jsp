@@ -12,7 +12,7 @@
 #customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-     
+    color: #FFFFFF;
     top: 50%;
     left: 50%;
     center;

@@ -49,6 +49,29 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 30%; 
+}
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 60px;
+}
+.container {
+  padding: 16px;
+}
+
 </style>
 </head>
 <ul>
@@ -77,6 +100,31 @@ li.dropdown {
     	<a href="/coisasemprestadas/emprestimo/listarEmprestimo">Lista de Emprestimos</a>
     	</div>
     </li>
+    
+     
+  <li style="float:right">
+ <button onclick="document.getElementById('id01').style.display='block'" style="float:right">Entrar</button>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+   
+    <div class="container">
+      <label for="uname"><b>Nome</b></label>
+      <input type="text"  name="uname" required>
+      <label for="psw"><b>Senha</b></label>
+      <input type="password"  name="psw" required>
+        
+      <button type="submit">Entrar</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Lembra-me
+      </label>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+    </div>
+  </form>
+</div>
+    
 </ul>
 
 </body>

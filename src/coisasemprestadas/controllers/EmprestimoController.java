@@ -16,10 +16,9 @@ import coisasemprestadas.models.Coisas;
 import coisasemprestadas.models.Emprestimo;
 import coisasemprestadas.models.Usuario;
 
-
 @Controller
 public class EmprestimoController {
-	@RequestMapping ("/emprestimo/form")
+	@RequestMapping("/emprestimo/form")
 	public ModelAndView form() {
 		System.out.println("Chamou meu método");
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -28,14 +27,16 @@ public class EmprestimoController {
 		List<Coisas> listaC = coisasDAO.getLista();
 
 		ModelAndView model = new ModelAndView("emprestimo/form");
+		
+		System.out.println(listaU);
 
-		model.addObject("usuario", listaU);
+		model.addObject("usuarios", listaU);
 		model.addObject("coisas", listaC);
 
 		return model;
 	}
-	
-	@PostMapping ("/emprestimo/executarEmprestimo")
+
+	@PostMapping("/emprestimo/executarEmprestimo")
 	public String adicionar(Emprestimo emprestimo) {
 		System.out.println("Chamou o método de adicionar");
 		System.out.println(emprestimo);
@@ -43,9 +44,6 @@ public class EmprestimoController {
 		EmprestimoDAO.inserir(emprestimo);
 		return "redirect:listarEmprestimo";
 	}
-	
-
-
 
 	@RequestMapping("/emprestimo/listarEmprestimo")
 	public ModelAndView listar() {
@@ -76,6 +74,7 @@ public class EmprestimoController {
 		model.addObject("emprestimo", lista);
 		return model;
 	}
+
 	@RequestMapping("/emprestimo/devolver")
 	public String devolucao(Emprestimo emprestimo) {
 		System.out.println("Chamou o método devolução");

@@ -67,12 +67,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="coisas" items="${coisas}">
+			<c:forEach var="coisa" items="${coisas}">
 				<tr>
-					<td>${coisas.usuario }</td>
-					<td>${coisas.nome }</td>
-					<td>${coisas.descricao}</td>
-					<td><a href="/coisasemprestadas/coisas/remover?id=${coisas.id}">Remover</a></td>
+					<td>${coisa.usuario }</td>
+					<td>${coisa.nome }</td>
+					<td>${coisa.descricao}</td>
+					<td><a href="/coisasemprestadas/coisas/remover?id=${coisa.id}">Remover</a></td>
 				</tr>
 			</c:forEach>
 

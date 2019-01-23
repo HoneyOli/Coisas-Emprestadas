@@ -45,19 +45,17 @@ public class CoisasDAO {
 		List<Coisas> result = new ArrayList<>();
 
 		try {
-			PreparedStatement stmt = this.connection.prepareStatement("select * from coisas");
+			PreparedStatement stmt = this.connection.prepareStatement("select * from coisas;");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				
 				Coisas coisas = new Coisas();
 				coisas.setId(rs.getLong("id"));
 				coisas.setUsuario(rs.getString("usuario"));
 				coisas.setNome(rs.getString("nome"));
 				coisas.setDescricao(rs.getString("descricao"));
 				
-
-				
+				result.add(coisas);
 			}
 			rs.close();
 			stmt.close();
