@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import coisasemprestadas.daos.UsuarioDAO;
 import coisasemprestadas.models.Usuario;
 
@@ -49,6 +50,24 @@ public class UsuarioController {
 		
 		return "redirect:/usuario";
 		
+	}
+	
+	@RequestMapping("/selecionar")
+	public ModelAndView selecionar (Usuario usuario) {
+		UsuarioDAO usuarioDAO = new UsuarioDAO ();
+		usuario = usuarioDAO.getById(usuario.getId());
+		
+		ModelAndView model = new ModelAndView ("usuario/Form-alterar");
+		model.addObject("usuario", usuario);
+		return model;
+	}
+	
+	@PostMapping("/alterar")
+	public String alterar (Usuario usuario) {
+		System.out.println("Chamou o método alterar ");
+		UsuarioDAO usuarioDAO = new UsuarioDAO ();
+		usuarioDAO.alterar(usuario);
+		return "redirect:/usuario";
 	}
 	
 

@@ -24,6 +24,13 @@ li a, .dropbtn {
     padding: 14px 150px;
     text-decoration: none;
 }
+ .dropbtn1{
+ display: inline-block;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 14px 55px;
+    text-decoration: none;
+    }
 li a:hover, .dropdown:hover .dropbtn {
     background-color: #F9E846;
 }
@@ -71,6 +78,58 @@ li.dropdown {
 .container {
   padding: 16px;
 }
+button {
+  background-color: #F9E846;
+  color: white;
+  border: none;
+  padding: 17px 16px;
+   text-align: center;
+   marin-letf: 70%:
+   width: auto;
+ 
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button:hover {
+  opacity: 0.8;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 30%; 
+}
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+  span.psw {
+  float: right;
+  padding-top: 16px;
+}
 
 </style>
 </head>
@@ -103,7 +162,8 @@ li.dropdown {
     
      
   <li style="float:right">
- <button onclick="document.getElementById('id01').style.display='block'" style="float:right">Entrar</button>
+ 
+ <button onclick="document.getElementById('id01').style.display='block'" style="float:right">Login</button>
 <div id="id01" class="modal">
   
   <form class="modal-content animate" action="/action_page.php">

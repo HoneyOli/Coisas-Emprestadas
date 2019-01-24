@@ -74,6 +74,7 @@
 					<td>${usuario.email }</td>
 					<td>${usuario.endereco }</td>
 					<td><a href="/coisasemprestadas/usuario/remover?id=${usuario.id}">Remover</a></td>
+					<td><a href="/coisasemprestadas/usuario/selecionar?id=${usuario.id}">Alterar</a></td>
 				</tr>
 			</c:forEach>
 

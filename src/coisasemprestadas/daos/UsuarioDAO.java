@@ -47,7 +47,7 @@ public class UsuarioDAO {
 
 	public boolean atualisar(Usuario usuario) {
 
-		String sql = "update aluno set nome=?, email=?, endereco=?, senha=?";
+		String sql = "update usuario set nome=?, email=?, endereco=?, senha=?";
 	
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -98,6 +98,7 @@ public class UsuarioDAO {
 		return result;
 	}
 	
+	
 	public Usuario getUsuarioById(long id) {
 		Usuario usuario = new Usuario();
 
@@ -124,14 +125,14 @@ public class UsuarioDAO {
 	}
 
 	public boolean alterar(Usuario usuario) {
-		String sql = "update usuario set nome=?, email=?, senha=? where id=?;";
+		String sql = "update usuario set nome=?, email=?, endereco=?, senha=? where id=?;";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getEmail());
 			stmt.setString(3, usuario.getEndereco());
-			stmt.setString(3, usuario.getSenha());
-			stmt.setLong(4, usuario.getId());
+			stmt.setString(4, usuario.getSenha());
+			stmt.setLong(5, usuario.getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -141,6 +142,7 @@ public class UsuarioDAO {
 		return true;
 	}
 
+	
 	public boolean remover(Usuario usuario) {
 		try {
 			PreparedStatement stmt = connection.prepareStatement("delete from usuario where id=?;");
