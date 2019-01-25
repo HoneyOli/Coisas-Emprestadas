@@ -52,7 +52,7 @@ public class UsuarioController {
 		
 	}
 	
-	@RequestMapping("/selecionar")
+	@RequestMapping("usuario/selecionar")
 	public ModelAndView selecionar (Usuario usuario) {
 		UsuarioDAO usuarioDAO = new UsuarioDAO ();
 		usuario = usuarioDAO.getById(usuario.getId());
@@ -62,7 +62,7 @@ public class UsuarioController {
 		return model;
 	}
 	
-	@PostMapping("/alterar")
+	@PostMapping("usuario/alterar")
 	public String alterar (Usuario usuario) {
 		System.out.println("Chamou o método alterar ");
 		UsuarioDAO usuarioDAO = new UsuarioDAO ();

@@ -92,26 +92,21 @@ input[type=submit]:hover {
 
 	<div class="container">
 	<div class="centralizado">
-	<h1>Alterar Dados do Usuário </h1>
-		<form action="/coisasemprestadas/usuario/alterar" method="post">
-			<input type="hidden" readonly="readonly" name="id" value="${usuario.id}">
+	<h1>Alterar Dados do Objeto/Coisa </h1>
+		<form action="/coisasemprestadas/coisas/alterar" method="post">
+			<input type="hidden" readonly="readonly" name="id" value="${coisas.id}">
 		</div>
-		
+		<div>
+			<label>Usuario: </label> 
+			<input type="text" name="usuario" value="${coisas.usuario}">
+		</div>
 		<div>
 			<label>Nome: </label> 
-			<input type="text" name="nome" value="${usuario.nome}">
+			<input type="text" name="nome" value="${coisas.nome}">
 		</div>
 		<div>
-			<label>Email: </label> 
-			<input type="text" name="email"value="${usuario.email}">
-		</div>
-		<div>
-			<label>Endereço: </label> 
-			<input type="text" name="endereco"value="${usuario.endereco}">
-		</div>
-		<div>
-			<label>Senha: </label> 
-			<input type="text" name="senha"value="${usuario.senha}">
+			<label>Descrição: </label> 
+			<input type="text" name="descricao"value="${coisas.descricao}">
 		</div>
 			<button type="submit">Alterar</button>
 		</div>

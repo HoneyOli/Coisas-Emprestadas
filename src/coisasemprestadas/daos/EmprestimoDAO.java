@@ -10,6 +10,7 @@ import java.sql.Date;
 import java.util.List;
 
 import coisasemprestadas.daos.ConnectionFactory;
+import coisasemprestadas.models.Coisas;
 import coisasemprestadas.models.Emprestimo;
 import coisasemprestadas.models.Usuario;
 
@@ -84,30 +85,30 @@ public List<Emprestimo> getAcessiveis() {
 		PreparedStatement stmt = this.connection.prepareStatement("select * from emprestimo;");
 		ResultSet rs = stmt.executeQuery();
 
-		Calendar dataEmp = Calendar.getInstance();
-		stmt.setDate(1, new Date(dataEmp.getTimeInMillis()-14 * 24 * 60 * 60 * 1000));
 		
 
 		while (rs.next()) {
-			 Emprestimo emprestimo1 = new Emprestimo();
-				Calendar data = Calendar.getInstance();
-				data.setTime(rs.getDate("dataEmp"));
-				emprestimo1.setDataEmp(data);
-				Usuario usuario = new UsuarioDAO().getById(rs.getLong("usuario"));
-				emprestimo1.setUsuario(usuario);
-				
-				emprestimo.add(emprestimo1);
+			Emprestimo emprestim = new Emprestimo();
+			Calendar data = Calendar.getInstance();
+			data.setTime(rs.getDate("dataEmp"));
+			emprestim.setDataEmp(data);
+			Usuario usuario = new UsuarioDAO().getById(rs.getLong("usuarioID"));
+			Coisas coisas = new CoisasDAO().getCoisasById(rs.getLong("coisasID"));
+			emprestim.setUsuario(usuario);
+			
 
+			emprestimo.add(emprestim);
 		}
 		rs.close();
 
 		stmt.close();
-		
+	
 	} catch (SQLException e) {
 		e.printStackTrace();
 	}
 		return emprestimo;
 }
+
 
 public List<Emprestimo> getAtrasados() {
 

@@ -30,7 +30,7 @@ public class EmprestimoController {
 		
 		System.out.println(listaU);
 
-		model.addObject("usuarios", listaU);
+		model.addObject("usuario", listaU);
 		model.addObject("coisas", listaC);
 
 		return model;
@@ -55,7 +55,7 @@ public class EmprestimoController {
 		return model;
 	}
 
-	@GetMapping("/emprestimo/EmpAbertos")
+	@GetMapping("/emprestimo/empAbertos")
 	public ModelAndView listarAbertos() {
 		System.out.println("Chamou o metódo de listagem de emprestimos abertos");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
@@ -65,7 +65,7 @@ public class EmprestimoController {
 		return model;
 	}
 
-	@GetMapping("/emprestimo/EmpAtrasados")
+	@GetMapping("/emprestimo/empAtrasados")
 	public ModelAndView listarAtrasado() {
 		System.out.println("Chamou o metódo de listagem");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO();

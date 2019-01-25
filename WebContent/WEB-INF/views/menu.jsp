@@ -157,8 +157,13 @@ button:hover {
     <div class="dropdown-content">
     	<a href="/coisasemprestadas/emprestimo/form">Fazer Emprestimo</a>
     	<a href="/coisasemprestadas/emprestimo/listarEmprestimo">Lista de Emprestimos</a>
+    		<a href="/coisasemprestadas/emprestimo/empAbertos">Empréstimos em Dias</a>
+    	<a href="/coisasemprestadas/emprestimo/empAtrasados">Empréstimos Atrasados</a>
+    	
     	</div>
     </li>
+    
+    
     
      
   <li style="float:right">
@@ -168,7 +173,7 @@ button:hover {
   
   <form class="modal-content animate" action="/action_page.php">
    
-    <div class="container">
+    <div class="container">		
       <label for="uname"><b>Nome</b></label>
       <input type="text"  name="uname" required>
       <label for="psw"><b>Senha</b></label>

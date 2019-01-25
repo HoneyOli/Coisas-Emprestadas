@@ -11,6 +11,7 @@ import java.util.List;
 import coisasemprestadas.daos.ConnectionFactory;
 import coisasemprestadas.models.Coisas;
 
+
 public class CoisasDAO {
 	private Connection connection;
 
@@ -119,6 +120,25 @@ public class CoisasDAO {
 		}
 		return true;
 	}
+	
+	public boolean alterar(Coisas coisas) {
+		String sql = "update coisas set usuario=?, nome=?, descricao=? where id=?;";
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setString(1, coisas.getUsuario());
+			stmt.setString(2, coisas.getNome());
+			stmt.setString(3, coisas.getDescricao());
+			stmt.setLong(4, coisas.getId());
+			
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
 	public Coisas getCoisasByNome(String nome) {
 		Coisas result = null;
 

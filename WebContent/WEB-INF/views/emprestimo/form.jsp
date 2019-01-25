@@ -32,8 +32,8 @@ label {
 	
 }
 input[type=submit] {
-	background-color: #000000;
-	color: white;
+	background-color: #FFFFFF;
+	color: #000000;
 	padding: 12px 20px;
 	border: none;
 	border-radius: 4px;
@@ -101,7 +101,7 @@ input[type=submit]:hover {
 
 				<div class="col-75">
 					<select name="usuario.id">
-						<c:forEach var="usuario" items="${usuarios}">
+						<c:forEach var="usuario" items="${usuario}">
 							<option value="${usuario.id}">${usuario.nome}</option>
 						</c:forEach>
 					</select>
@@ -114,11 +114,12 @@ input[type=submit]:hover {
 				<div class="col-25">
 					<label for="fname">Coisas</label>
 				</div>
+				
 
 				<div class="col-75">
 					<select name="coisas.id">
-						<c:forEach var="coisa" items="${coisas}">
-							<option value="${coisa.id}">${coisa.nome}</option>
+						<c:forEach var="coisas" items="${coisas}">
+							<option value="${coisas.id}">${coisas.nome}</option>
 						</c:forEach>
 					</select>
 				</div>

@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import coisasemprestadas.daos.CoisasDAO;
 import coisasemprestadas.models.Coisas;
 
+
 @Controller
 public class CoisasController {
 	@RequestMapping ("/coisas/form")
@@ -47,6 +48,24 @@ public class CoisasController {
 		
 		return "redirect:/coisas";
 		
+	}
+	
+	@RequestMapping("coisas/selecionar")
+	public ModelAndView selecionar (Coisas coisas) {
+		CoisasDAO coisasDAO = new CoisasDAO ();
+		coisas = coisasDAO.getCoisasById(coisas.getId());
+		
+		ModelAndView model = new ModelAndView ("coisas/Form-alterar");
+		model.addObject("coisas", coisas);
+		return model;
+	}
+	
+	@PostMapping("coisas/alterar")
+	public String alterar (Coisas coisas) {
+		System.out.println("Chamou o método alterar ");
+		CoisasDAO coisasDAO = new CoisasDAO ();
+		coisasDAO.alterar(coisas);
+		return "redirect:/coisas";
 	}
 }
 
